@@ -4,12 +4,14 @@ try:
     from tkinter import messagebox
     from sys import argv
     from os import system
+    from getpass import getuser
     import sqlite3
 except Exception as error_imports:
      print(error_imports)
 #/------------------------------/#
 #/- Creating the bank -----------------------------------------------------------------/#
-connect = sqlite3.connect("bank.db")
+user = getuser()
+connect = sqlite3.connect("/home/{}/bank.db".format(user))
 cursor = connect.cursor()
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -80,6 +82,7 @@ class Root():
         """.format(gfname,glname,gemail,gphone,gjobrole,gsalary))
 
         connect.commit()
+        connect.close()
 #/-------------------------------------------------------------------------------------------------------------------------------/#
 #/- Instances -----------------------/#
 try:

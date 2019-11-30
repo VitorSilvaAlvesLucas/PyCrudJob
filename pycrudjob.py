@@ -64,11 +64,18 @@ class Root():
         self.ent_salary.grid(row=13,column=0)
         #/-----------------------------------------------------------------------------------------------------------------------/#
         #/-Buttons --------------------------------------------------------------------------------------------------------------/#
-        bt_search = Button(self.window,text="Search",font=("Arial",11)).grid(row=14,column=0,sticky=W,padx=5,pady=10)
+        bt_search = Button(self.window,text="Search",font=("Arial",11),command=self.search).grid(row=14,column=0,sticky=W,padx=5,pady=10)
         bt_new = Button(self.window,text="New",font=("Arial",11),command=self.new).grid(row=14,column=0,stick=W,padx=79)
-        bt_update = Button(self.window,text="Update",font=("Arial",11)).grid(row=14,column=0,stick=E,padx=75)
-        bt_delete = Button(self.window,text="Delete",font=("Arial",11)).grid(row=14,column=0,stick=E,padx=5)
+        bt_update = Button(self.window,text="Update",font=("Arial",11),command=self.update).grid(row=14,column=0,stick=E,padx=75)
+        bt_delete = Button(self.window,text="Delete",font=("Arial",11),command=self.delete).grid(row=14,column=0,stick=E,padx=5)
         #/-----------------------------------------------------------------------------------------------------------------------/#
+    def search(self):
+        cursor.execute("""
+            SELECT * FROM users;
+        """)
+        all = cursor.fetchall()
+        print(all)
+
     def new(self):
         gfname = self.ent_fname.get()
         glname = self.ent_lname.get()
@@ -80,9 +87,25 @@ class Root():
             INSERT INTO users(fname, lname, email, phone, jobrole, salary)
             VALUES("{}","{}","{}","{}","{}","{}")
         """.format(gfname,glname,gemail,gphone,gjobrole,gsalary))
-
         connect.commit()
-        connect.close()
+    def update(self):
+        gid = self.ent_code.get()
+        gfname = self.ent_fname.get()
+        glname = self.ent_lname.get()
+        gemail = self.ent_email.get()
+        gphone = self.ent_phone.get()
+        gjobrole = self.ent_jobrole.get()
+        gsalary = self.ent_salary.get()
+        cursor.execute("""
+            UPDATE users SET fname = ?, lname = ?, email = ?, phone = ?, jobrole = ?, salary = ? WHERE id = ?
+        """, (gfname,glname,gemail,gphone,gjobrole,gsalary,gid))
+        connect.commit()
+    def delete(self):
+        cursor.execute("""
+            DELETE FROM users
+            WHERE id = ?
+        """, (self.ent_code.get()))
+        connect.commit()
 #/-------------------------------------------------------------------------------------------------------------------------------/#
 #/- Instances -----------------------/#
 try:

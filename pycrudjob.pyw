@@ -1,3 +1,7 @@
+#/------------------------------------------------------------------/#
+#/-GITHUB: https://github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/  /#
+#/-CODED BY: VITOR SILVA ALVES                                      /#
+#/------------------------------------------------------------------/#
 #/- Imports ---------------------/#
 try:
     from tkinter import *

@@ -1,7 +1,7 @@
 # What Is
 ___________________________________________________________________________________________________________________________________
 PyCrudJob is a python program designed to manage and register employees in a company (CRUD for learning purposes).
-![illustration](https://user-images.githubusercontent.com/42574864/69913672-86693080-1419-11ea-951c-ae566f16e857.png)
+![illustration](https://user-images.githubusercontent.com/42574864/69917303-2e472400-1443-11ea-93ad-f3c96d5607c1.png)
 ___________________________________________________________________________________________________________________________________
 # Requirements
 ___________________________________________________________________________________________________________________________________

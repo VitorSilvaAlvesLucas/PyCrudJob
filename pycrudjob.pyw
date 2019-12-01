@@ -236,7 +236,7 @@ class Root():
                 file.write("{}\n".format(line))
     #/-----------------------------------------/#
     def help(self):
-        messagebox.showinfo("Help","Access: https://www.github.com/vitorsilvaalveslucas/PyCrudJob-v1.0/")
+        messagebox.showinfo("Help","Access: https://www.github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/")
     #/- Exit X ----------------------------------------/#
     def exitx(self):
         try:

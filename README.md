@@ -11,13 +11,13 @@ ________________________________________________________________________________
 ___________________________________________________________________________________________________________________________________
 Open the terminal and type "git clone https://github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/" or if you prefer click "Download" and then "Download ZIP" (in this case you will need to unzip PyCrudJob- v1.0.zip with the command: "unzip PyCrudJob-v1.0"), after downloading, simply open the folder "PyCrudJob-v1.0" and start pycrudjob.pyw
 ___________________________________________________________________________________________________________________________________
-# Backup Function
+# Backup Database
 ___________________________________________________________________________________________________________________________________
 To access the Backup function data, simply open the terminal and enter: "cat bank_backup.sql | less" (make sure it is inside the "PyCrudJob-v1.0" folder)
 ___________________________________________________________________________________________________________________________________
-# Language
+# Function
 ___________________________________________________________________________________________________________________________________
-English
+Software designed to illustrate the integration of Tkinter, Sqlite3 and Python3 to create a CRUD (Create, Retrieve, Update and Delete)
 ___________________________________________________________________________________________________________________________________
 # License
 ___________________________________________________________________________________________________________________________________

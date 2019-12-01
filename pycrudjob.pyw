@@ -234,6 +234,7 @@ class Root():
         with open("bank_backup.sql","w") as file:
             for line in connect.iterdump():
                 file.write("{}\n".format(line))
+        messagebox.showinfo("Info","Backup successfully created! To access it, simply open the terminal and type: 'cat bank_backup.sql | less' (make sure you are inside the 'PyCrudJob-v1.0' folder)")
     #/-----------------------------------------/#
     def help(self):
         messagebox.showinfo("Help","Access: https://www.github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/")

@@ -1,4 +1,4 @@
-#/- Imports ----------------------------------/#
+#/- Imports ---------------------/#
 try:
     from tkinter import *
     from io import open
@@ -9,7 +9,7 @@ try:
     import sqlite3
 except Exception as error_imports:
      messagebox.showerror("Error",error_imports)
-#/--------------------------------------------/#
+#/------------------------------/#
 #/- Creating the bank -----------------------------------------------------------------/#
 try:
     user = getuser()
@@ -87,10 +87,13 @@ class Root():
         self.window.config(menu=menubar)
         #/-----------------------------------------------------------------------------/#
         #/- Image -------------------------------/#
-        file_pcj = PhotoImage(file="img_pcj.png")
-        img_pcj = Label(self.window,image=file_pcj)
-        img_pcj.file_pcj = file_pcj
-        img_pcj.grid(row=0,column=0,columnspan=2)
+        try:
+            file_pcj = PhotoImage(file="img_pcj.png")
+            img_pcj = Label(self.window,image=file_pcj)
+            img_pcj.file_pcj = file_pcj
+            img_pcj.grid(row=0,column=0,columnspan=2)
+        except Exception as error_image:
+            messagebox.showwarning("Warmning","Error locating image 'img_pcj.png', make sure image file is in 'PyCrudJob-v1.0' folder.")
         #/---------------------------------------/#
     #/- Search -----------------------------------------/#
     def search(self):

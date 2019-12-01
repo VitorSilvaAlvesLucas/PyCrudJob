@@ -1,4 +1,4 @@
-#/- Imports ---------------------/#
+#/- Imports ----------------------------------/#
 try:
     from tkinter import *
     from io import open
@@ -9,7 +9,7 @@ try:
     import sqlite3
 except Exception as error_imports:
      messagebox.showerror("Error",error_imports)
-#/------------------------------/#
+#/--------------------------------------------/#
 #/- Creating the bank -----------------------------------------------------------------/#
 try:
     user = getuser()

@@ -93,7 +93,7 @@ class Root():
             img_pcj.file_pcj = file_pcj
             img_pcj.grid(row=0,column=0,columnspan=2)
         except Exception as error_image:
-            messagebox.showwarning("Warmning","Error locating image 'img_pcj.png', make sure image file is in 'PyCrudJob-v1.0' folder.")
+            messagebox.showwarning("Warmning","Error locating image 'img_pcj.png', make sure image file is in 'PyCrudJob' folder.")
         #/---------------------------------------/#
     #/- Search -----------------------------------------/#
     def search(self):
@@ -242,10 +242,10 @@ class Root():
         with open("bank_backup.sql","w") as file:
             for line in connect.iterdump():
                 file.write("{}\n".format(line))
-        messagebox.showinfo("Info","Backup successfully created! To access it, simply open the terminal and type: 'cat bank_backup.sql | less' (make sure you are inside the 'PyCrudJob-v1.0' folder)")
+        messagebox.showinfo("Info","Backup successfully created! To access it, simply open the terminal and type: 'cat bank_backup.sql | less' (make sure you are inside the 'PyCrudJob' folder)")
     #/-----------------------------------------/#
     def help(self):
-        messagebox.showinfo("Help","Access: https://www.github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/")
+        messagebox.showinfo("Help","Access: https://www.github.com/VitorSilvaAlvesLucas/PyCrudJob/")
     #/- Exit X ----------------------------------------/#
     def exitx(self):
         try:

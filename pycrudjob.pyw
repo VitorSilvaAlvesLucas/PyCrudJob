@@ -36,57 +36,62 @@ class Root():
         self.window = window
         self.window.protocol("WM_DELETE_WINDOW", lambda:self.exitx())
         #/- Code ID Widgets --------------------------------------------------------------------------------------------------------------------/#
-        lb_code = Label(self.window,text="Code ID                                                        ",font=("Arial",11)).grid(row=0,column=0)
+        lb_code = Label(self.window,text="Code ID                                                        ",font=("Arial",11)).grid(row=1,column=0)
         self.ent_code = Entry(self.window,width=35)
-        self.ent_code.grid(row=1,column=0)
+        self.ent_code.grid(row=2,column=0)
         #/--------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Firstname Widgets ------------------------------------------------------------------------------------------------------------------/#
-        lb_fname = Label(self.window,text="Firstname                                                     ",font=("Arial",11)).grid(row=2,column=0)
+        lb_fname = Label(self.window,text="Firstname                                                     ",font=("Arial",11)).grid(row=3,column=0)
         self.ent_fname = Entry(self.window,width=35)
-        self.ent_fname.grid(row=3,column=0)
+        self.ent_fname.grid(row=4,column=0)
         #/--------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Lastname Widgets ------------------------------------------------------------------------------------------------------------------/#
-        lb_lname = Label(self.window,text="Lastname                                                     ",font=("Arial",11)).grid(row=4,column=0)
+        lb_lname = Label(self.window,text="Lastname                                                     ",font=("Arial",11)).grid(row=5,column=0)
         self.ent_lname = Entry(self.window,width=35)
-        self.ent_lname.grid(row=5,column=0)
+        self.ent_lname.grid(row=6,column=0)
         #/-------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Email Widgets ------------------------------------------------------------------------------------------------------------------------/#
-        lb_email = Label(self.window,text="E-mail                                                          ",font=("Arial",11)).grid(row=6,column=0)
+        lb_email = Label(self.window,text="E-mail                                                          ",font=("Arial",11)).grid(row=7,column=0)
         self.ent_email = Entry(self.window,width=35)
-        self.ent_email.grid(row=7,column=0)
+        self.ent_email.grid(row=8,column=0)
         #/----------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Phone Widgets -----------------------------------------------------------------------------------------------------------------------/#
-        lb_phone = Label(self.window,text="Phone                                                          ",font=("Arial",11)).grid(row=8,column=0)
+        lb_phone = Label(self.window,text="Phone                                                          ",font=("Arial",11)).grid(row=9,column=0)
         self.ent_phone = Entry(self.window,width=35)
-        self.ent_phone.grid(row=9,column=0)
+        self.ent_phone.grid(row=10,column=0)
         #/- Job Role Widgets ----------------------------------------------------------------------------------------------------------------------/#
-        lb_jobrole = Label(self.window,text="Job Role                                                      ",font=("Arial",11)).grid(row=10,column=0)
+        lb_jobrole = Label(self.window,text="Job Role                                                      ",font=("Arial",11)).grid(row=11,column=0)
         self.ent_jobrole = Entry(self.window,width=35)
-        self.ent_jobrole.grid(row=11,column=0)
+        self.ent_jobrole.grid(row=12,column=0)
         #/-----------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Salary ---------------------------------------------------------------------------------------------------------------------------------/#
-        lb_salary = Label(self.window,text="Salary                                                          ",font=("Arial",11)).grid(row=12,column=0)
+        lb_salary = Label(self.window,text="Salary                                                          ",font=("Arial",11)).grid(row=13,column=0)
         self.ent_salary = Entry(self.window,width=35)
-        self.ent_salary.grid(row=13,column=0)
+        self.ent_salary.grid(row=14,column=0)
         #/------------------------------------------------------------------------------------------------------------------------------------------/#
         #/-Buttons ---------------------------------------------------------------------------------------------------------------------------------/#
-        bt_search = Button(self.window,text="Search",font=("Arial",11),command=self.search).grid(row=14,column=0,sticky=W,padx=5,pady=10)
-        bt_new = Button(self.window,text="New",font=("Arial",11),command=self.new).grid(row=14,column=0,stick=W,padx=79)
-        bt_update = Button(self.window,text="Update",font=("Arial",11),command=self.update).grid(row=14,column=0,stick=E,padx=75)
-        bt_delete = Button(self.window,text="Delete",font=("Arial",11),command=self.delete).grid(row=14,column=0,stick=E,padx=5)
+        bt_search = Button(self.window,text="Search",font=("Arial",11),command=self.search).grid(row=15,column=0,sticky=W,padx=5,pady=10)
+        bt_new = Button(self.window,text="New",font=("Arial",11),command=self.new).grid(row=15,column=0,stick=W,padx=79)
+        bt_update = Button(self.window,text="Update",font=("Arial",11),command=self.update).grid(row=15,column=0,stick=E,padx=75)
+        bt_delete = Button(self.window,text="Delete",font=("Arial",11),command=self.delete).grid(row=15,column=0,stick=E,padx=5)
         #/------------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Listbox ------------------------------------------------------------------------/#
-        self.listbox = Listbox(self.window,width=40,bd=3,bg="#E6E6E6",font=("Arial Black",12),fg="green")
-        self.listbox.grid(row=0,column=1,rowspan=15,sticky=N+S)
+        self.listbox = Listbox(self.window,width=40,bd=3,bg="#E6E6E6",font=("Arial Black",12))
+        self.listbox.grid(row=1,column=1,rowspan=16,pady=10,sticky=N+S)
         #/----------------------------------------------------------------------------------/#
         #/- MenuBar -------------------------------------------------------------------/#
         menubar = Menu(self.window)
         menubar.add_command(label="Reset-Database",command=lambda:self.resetdatabase())
         menubar.add_command(label="Backup",command=lambda:self.backupdatabase())
         menubar.add_command(label="Help",command=lambda:self.help())
-        menubar["fg"] = "green"
         self.window.config(menu=menubar)
         #/-----------------------------------------------------------------------------/#
+        #/- Image -------------------------------/#
+        file_pcj = PhotoImage(file="img_pcj.png")
+        img_pcj = Label(self.window,image=file_pcj)
+        img_pcj.file_pcj = file_pcj
+        img_pcj.grid(row=0,column=0,columnspan=2)
+        #/---------------------------------------/#
     #/- Search -----------------------------------------/#
     def search(self):
         try:

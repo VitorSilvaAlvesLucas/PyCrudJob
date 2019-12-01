@@ -1,7 +1,3 @@
-#/------------------------------------------------------------------/#
-#/-GITHUB: https://github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/  /#
-#/-CODED BY: VITOR SILVA ALVES                                      /#
-#/------------------------------------------------------------------/#
 #/- Imports ---------------------/#
 try:
     from tkinter import *
@@ -83,11 +79,7 @@ class Root():
         #/----------------------------------------------------------------------------------/#
         #/- MenuBar -------------------------------------------------------------------/#
         menubar = Menu(self.window)
-        toolsmenu = Menu(menubar, tearoff=0)
-        menubar.add_cascade(menu=toolsmenu,label="Tools")
-        toolsmenu.add_command(label="Reset-Database",command=lambda:self.resetdatabase())
-        menubar.add_command(label="Help")
-        menubar.add_command(label="License")
+        menubar.add_command(label="Reset-Database",command=lambda:self.resetdatabase())
         self.window.config(menu=menubar)
         #/-----------------------------------------------------------------------------/#
     #/- Search -----------------------------------------/#

@@ -1,13 +1,14 @@
 #/- Imports ---------------------/#
 try:
     from tkinter import *
+    from io import open
     from tkinter import messagebox
-    from sys import argv,exit
+    from sys import exit
     from os import system
     from getpass import getuser
     import sqlite3
 except Exception as error_imports:
-     print(error_imports)
+     messagebox.showerror("Error",error_imports)
 #/------------------------------/#
 #/- Creating the bank -----------------------------------------------------------------/#
 try:
@@ -15,7 +16,8 @@ try:
     connect = sqlite3.connect("/home/{}/bank.db".format(user),timeout=10)
     cursor = connect.cursor()
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        CREATE TABLE IF NOT EXISTS users(
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         fname TEXT NOT NULL,
         lname TEXT NOT NULL,
         email TEXT UNIQUE NOT NULL,
@@ -74,12 +76,15 @@ class Root():
         bt_delete = Button(self.window,text="Delete",font=("Arial",11),command=self.delete).grid(row=14,column=0,stick=E,padx=5)
         #/------------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Listbox ------------------------------------------------------------------------/#
-        self.listbox = Listbox(self.window,width=40,bd=3,bg="#E6E6E6",font=("Arial Black",12))
+        self.listbox = Listbox(self.window,width=40,bd=3,bg="#E6E6E6",font=("Arial Black",12),fg="green")
         self.listbox.grid(row=0,column=1,rowspan=15,sticky=N+S)
         #/----------------------------------------------------------------------------------/#
         #/- MenuBar -------------------------------------------------------------------/#
         menubar = Menu(self.window)
         menubar.add_command(label="Reset-Database",command=lambda:self.resetdatabase())
+        menubar.add_command(label="Backup",command=lambda:self.backupdatabase())
+        menubar.add_command(label="Help",command=lambda:self.help())
+        menubar["fg"] = "green"
         self.window.config(menu=menubar)
         #/-----------------------------------------------------------------------------/#
     #/- Search -----------------------------------------/#
@@ -224,6 +229,14 @@ class Root():
         system("rm -rf /home/{}/bank.db".format(user))
         exit()
     #/----------------------------------------------/#
+    #/- Backup DB -----------------------------/#
+    def backupdatabase(self):
+        with open("bank_backup.sql","w") as file:
+            for line in connect.iterdump():
+                file.write("{}\n".format(line))
+    #/-----------------------------------------/#
+    def help(self):
+        messagebox.showinfo("Help","Access: https://www.github.com/vitorsilvaalveslucas/PyCrudJob-v1.0/")
     #/- Exit X ----------------------------------------/#
     def exitx(self):
         try:

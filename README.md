@@ -9,11 +9,11 @@ Have GNU-Linux and Python3.
 ___________________________________________________________________________________________________________________________________
 # How to install
 ___________________________________________________________________________________________________________________________________
-Open the terminal and type "git clone https://github.com/VitorSilvaAlvesLucas/PyCrudJob-v1.0/" or if you prefer click "Download" and then "Download ZIP" (in this case you will need to unzip PyCrudJob- v1.0.zip with the command: "unzip PyCrudJob-v1.0"), after downloading, simply open the folder "PyCrudJob-v1.0" and start pycrudjob.pyw
+Open the terminal and type "git clone https://github.com/VitorSilvaAlvesLucas/PyCrudJob/" or if you prefer click "Download" and then "Download ZIP" (in this case you will need to unzip PyCrudJob.zip with the command: "unzip PyCrudJob"), after downloading, simply open the folder "PyCrudJob" and start pycrudjob.pyw
 ___________________________________________________________________________________________________________________________________
 # Backup Database
 ___________________________________________________________________________________________________________________________________
-To access the Backup function data, simply open the terminal and enter: "cat bank_backup.sql | less" (make sure it is inside the "PyCrudJob-v1.0" folder)
+To access the Backup function data, simply open the terminal and enter: "cat bank_backup.sql | less" (make sure it is inside the "PyCrudJob" folder)
 ___________________________________________________________________________________________________________________________________
 # Function
 ___________________________________________________________________________________________________________________________________

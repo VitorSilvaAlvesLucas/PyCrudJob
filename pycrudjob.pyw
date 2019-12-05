@@ -1,4 +1,4 @@
-#/- Imports ---------------------/#
+#/- Imports ----------------------------------/#
 try:
     from tkinter import *
     from io import open
@@ -9,7 +9,7 @@ try:
     import sqlite3
 except Exception as error_imports:
      messagebox.showerror("Error",error_imports)
-#/------------------------------/#
+#/--------------------------------------------/#
 #/- Creating the bank -----------------------------------------------------------------/#
 try:
     user = getuser()
@@ -34,7 +34,7 @@ class Root():
     def __init__(self,window):
         #/- Window -----------------------------------------------------------------------------------------------------------------------------/#
         self.window = window
-        self.window.protocol("WM_DELETE_WINDOW", lambda:self.exitx())
+        self.window.protocol("WM_DELETE_WINDOW", self.exitx)
         #/- Code ID Widgets --------------------------------------------------------------------------------------------------------------------/#
         lb_code = Label(self.window,text="Code ID                                                        ",font=("Arial",11)).grid(row=1,column=0)
         self.ent_code = Entry(self.window,width=35)
@@ -77,13 +77,13 @@ class Root():
         #/------------------------------------------------------------------------------------------------------------------------------------------/#
         #/- Listbox ------------------------------------------------------------------------/#
         self.listbox = Listbox(self.window,width=40,bd=3,bg="#E6E6E6",font=("Arial Black",12))
-        self.listbox.grid(row=1,column=1,rowspan=16,pady=10,sticky=N+S)
+        self.listbox.grid(row=1,column=1,rowspan=16,pady=10,padx=5,sticky=N+S)
         #/----------------------------------------------------------------------------------/#
         #/- MenuBar -------------------------------------------------------------------/#
         menubar = Menu(self.window)
-        menubar.add_command(label="Reset-Database",command=lambda:self.resetdatabase())
-        menubar.add_command(label="Backup",command=lambda:self.backupdatabase())
-        menubar.add_command(label="Help",command=lambda:self.help())
+        menubar.add_command(label="Reset-Database",command=self.resetdatabase)
+        menubar.add_command(label="Backup",command=self.backupdatabase)
+        menubar.add_command(label="Help",command=self.help)
         self.window.config(menu=menubar)
         #/-----------------------------------------------------------------------------/#
         #/- Image -------------------------------/#
